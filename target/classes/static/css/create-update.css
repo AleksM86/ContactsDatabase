@@ -1,0 +1,14 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.input{
+    width: 400px;
+    height: 40px;
+    color: darkblue;
+    border: 2px darkblue solid;;
+}
+.main-container{
+    margin-top: 30px;
+}

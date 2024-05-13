@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/create-update.css">
+    <title>CreateOrUpdate</title>
+</head>
+
+<body>
+<div th:insert="~{index::header}"></div>
+<main>
+    <div class="main-container">
+        <form class="form" th:object="${contact}" th:action="@{/contact/create-update}" th:method="post">
+            <input class="input" type="text" placeholder="firstName" th:field="*{firstName}" required>
+            <input class="input" type="text" placeholder="LastName" th:field="*{lastName}" required>
+            <input class="input" type="email" placeholder="email" th:field="*{email}" required>
+            <input class="input" type="tel" placeholder="phone" th:field="*{phone}" required>
+            <input class="input" type="text" placeholder="id" th:field="*{id}" hidden>
+            <button class="button button-save" type="submit">Save</button>
+        </form>
+    </div>
+</main>
+</body>
+
+</html>
