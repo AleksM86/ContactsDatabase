@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Contacts</title>
+</head>
+
+<body>
+<header class="header">
+    <div class="header-container">
+        <h1 class="header-container_header">Contact Book</h1>
+    </div>
+</header>
+<main class="main">
+    <div class="main-container">
+        <div class="table-container">
+            <div class="header-table">
+                <div class="header-table_element header-table__id">Id</div>
+                <div class="header-table_element header-table__firstName">FirstName</div>
+                <div class="header-table_element header-table__lastName">LastName</div>
+                <div class="header-table_element header-table__email">Email</div>
+                <div class="header-table_element header-table__phone">Phone</div>
+                <div class="header-table_element header-table__update-delete">Update Or Delete</div>
+            </div>
+            <div class="table" th:each="contact:${contacts}">
+                <div class="table_element table__id" th:text="${contact.id}"></div>
+                <div class="table_element table__firstName" th:text="${contact.firstName}"></div>
+                <div class="table_element table__lastName" th:text="${contact.lastName}"></div>
+                <div class="table_element table__email" th:text="${contact.email}"></div>
+                <div class="table_element table__phone" th:text="${contact.phone}"></div>
+                <div class="table_element table__update-delete">
+                    <a class="button-link" th:href="@{/contact/create-update/{id}(id=${contact.id})}">
+                        <button class="button">update</button>
+                    </a>
+                    <a class="button-link" th:href="@{/contact/delete/{id}(id=${contact.id})}">
+                        <button class="button">delete</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="create">
+            <a class="button-link create-link" href="contact/create-update">
+                <button class="button create_button">create contact</button>
+            </a>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>
